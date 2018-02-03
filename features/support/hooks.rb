@@ -3,6 +3,9 @@
 require 'watir'
 
 Before do |scenario|
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.clean
+
   DataMagic.load_for_scenario(scenario)
   @user = FactoryBot.create :user
   @vacancy = FactoryBot.create :vacancy
@@ -21,5 +24,5 @@ After do |scenario|
     embed("data:image/png;base64,#{encoded_img}", 'image/png')
   end
   @browser.close
-  DatabaseCleaner[:activerecord].clean
+  DatabaseCleaner.clean
 end

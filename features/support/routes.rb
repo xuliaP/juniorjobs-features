@@ -24,6 +24,14 @@ module Routes
         new_vacancy: {
           path: '/jobs/new',
           page_class: Pages::NewVacancy
+        },
+        login: {
+            path: '/login',
+            page_class: Pages::Login
+        },
+        admin_dashboard: {
+            path: '/admin',
+            page_class: Pages::AdminDashboard
         }
       }
     end

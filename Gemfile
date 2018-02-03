@@ -9,6 +9,7 @@ end
 
 ruby '2.5.0'
 
+gem 'activerecord'
 gem 'database_cleaner'
 gem 'data_magic'
 gem 'cucumber'
@@ -18,4 +19,5 @@ gem 'page-object'
 gem 'pg', '~> 0.18'
 gem 'rspec'
 gem 'selenium-webdriver'
+gem 'sorcery'
 gem 'watir'
