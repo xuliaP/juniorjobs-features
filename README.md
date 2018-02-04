@@ -9,6 +9,9 @@ Cucumber/Watir tests for [JuniorJobs](https://github.com/howtohireme/juniorjobs.
 
 ## Run features:
 - run juniorjobs app
+```shell
+rails s -e test
+```
 - Move to the directory with the juniorjobs-features app
 
 - run all features:
