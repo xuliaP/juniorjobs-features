@@ -1,4 +1,7 @@
 # juniorjobs-features
+[![Build Status](https://travis-ci.org/howtohireme/juniorjobs-features.svg?branch=master)](https://travis-ci.org/howtohireme/juniorjobs-features)
+
+
 Cucumber/Watir tests for [JuniorJobs](https://github.com/howtohireme/juniorjobs.ru)
 ## Install
 - clone juniorjobs app
