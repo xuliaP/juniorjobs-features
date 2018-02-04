@@ -1,11 +1,20 @@
 # frozen_string_literal: true
 
+require 'sorcery/crypto_providers/bcrypt'
+
 FactoryBot.define do
+  sequence :email do |n|
+    "person#{n}@example.com"
+  end
+
   factory :user, class: OpenStruct do
     Faker::Config.locale = :en
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
-    email "nn24086+#{Time.now.to_i}@gmail.com"
+    email
     password Faker::Internet.password(6)
+    salt { 'asdasdastr4325234324sdfds' }
+    crypted_password { Sorcery::CryptoProviders::BCrypt.encrypt(password, salt) }
+    roles { %w[admin junior company].sample }
   end
 end

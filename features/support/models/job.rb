@@ -1,5 +1,5 @@
 require 'active_record'
 
 module Models
-  class User < ActiveRecord::Base; end
+  class Job < ActiveRecord::Base; end
 end

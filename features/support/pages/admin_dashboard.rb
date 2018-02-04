@@ -1,11 +1,9 @@
 # frozen_string_literal: true
+require_relative 'admin_layout'
 
 module Pages
-  # this class describe login page
+  # this class describe admin dashboard
   class AdminDashboard
-    include PageObject
-    a :users, xpath: "//a[contains(@href, 'admin/users')]"
-    a :subscriptions, xpath: "//a[contains(@href, 'admin/subscriptions')]"
-    a :jobs, xpath: "//a[contains(@href, 'admin/jobs')]"
+    include Pages::AdminLayout
   end
 end
