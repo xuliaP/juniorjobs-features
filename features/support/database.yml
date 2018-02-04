@@ -1,8 +1,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV.fetch("POSTGRES_HOST") { 'localhost' } %>
   pool: 5
 
 test:
   <<: *default
-  database: juniorjobs_test
+  database: <%= ENV.fetch("POSTGRES_DB") { 'juniorjobs_test' } %>
