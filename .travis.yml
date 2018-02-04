@@ -12,4 +12,10 @@ services:
   - docker
 
 script:
-  - bin/build-image
+  - echo "Done"
+
+deploy:
+  provider: script
+  script: bin/build-image
+  on:
+    branch: master
