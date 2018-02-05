@@ -1,9 +1,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV.fetch("POSTGRES_HOST") { 'localhost' } %>
   pool: 5
 
 test:
   <<: *default
   database: <%= ENV.fetch("POSTGRES_DB") { 'juniorjobs_test' } %>
+
+features:
+  <<: *default
+  host: <%= ENV.fetch("POSTGRES_HOST") { 'localhost' } %>
+  user: <%= ENV.fetch("POSTGRES_USER") { 'postgres' } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { 'root' } %>
+  database: <%= ENV.fetch("POSTGRES_DB") { 'juniorjobs_test' } %>
+
