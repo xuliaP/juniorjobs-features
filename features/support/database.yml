@@ -3,10 +3,12 @@ default: &default
   encoding: unicode
   pool: 5
 
+# This environment is used at local features run
 test:
   <<: *default
   database: <%= ENV.fetch("POSTGRES_DB") { 'juniorjobs_test' } %>
 
+# This environment is used at dockerized features run
 features:
   <<: *default
   host: <%= ENV.fetch("POSTGRES_HOST") { 'localhost' } %>
