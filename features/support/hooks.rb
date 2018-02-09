@@ -12,8 +12,7 @@ Before do |scenario|
   @cucumber_host = ENV['CUCUMBER_HOST'] || 'http://localhost:3000'
   browser_options = ENV['CUCUMBER_HOST'] ? %w[--disable-gpu --headless --no-sandbox] : []
 
-  @browser = Watir::Browser.new(:chrome,
-                                switches: browser_options)
+  @browser = Watir::Browser.new(:chrome, switches: browser_options)
 end
 
 After do |scenario|
