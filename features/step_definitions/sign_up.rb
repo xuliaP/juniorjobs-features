@@ -6,6 +6,7 @@ end
 
 Then(/^user redirect to (\w+) page$/) do |page|
   @current_page = page_for(page)
+  sleep 7
   expect(@browser.url).to be_include(url_for(page))
 end
 
