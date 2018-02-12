@@ -5,5 +5,7 @@ module Pages
   class Home
     include PageObject
     include Pages::Header
+
+    a :job_title, xpath: ".//*[@id='job-title']/a"
   end
 end

@@ -10,8 +10,7 @@ Feature: create vacancy
     Given user have vacancy <field> with <data>
     When user fill vacancy form
     And user click submit
-    Then user redirect to home page
-    # pending => Add premoderation
+    Then user redirect to vacancy page
     And user see his vacancy
 
     Examples:

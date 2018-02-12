@@ -15,4 +15,4 @@ Feature: JuniorJobs sign up
   Scenario: Sign up with blank name
     Given I have credentials without email
     When I fill the sign up form and submit
-    And account should not be created and use see signup form
+    And account should not be created and user see signup form

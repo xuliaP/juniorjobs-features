@@ -8,3 +8,8 @@ end
 Given(/^user click (\w+)$/) do |element|
   @current_page.send(element)
 end
+
+Then(/^user redirect to (\w+) page$/) do |page|
+  @current_page = page_for(page)
+  expect(@browser.url).to be_include(url_for(page))
+end

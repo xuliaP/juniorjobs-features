@@ -21,6 +21,10 @@ module Routes
           path: '/signup',
           page_class: Pages::SignUp
         },
+        vacancy: {
+            path: '/jobs/',
+            page_class: Pages::Vacancy
+        },
         new_vacancy: {
           path: '/jobs/new',
           page_class: Pages::NewVacancy

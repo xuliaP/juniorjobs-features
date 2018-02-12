@@ -22,21 +22,14 @@ Given(/^(\d+) default users exists$/) do |num|
         email:            user[:email],
         crypted_password: user[:crypted_password],
         salt:             user[:salt],
-        roles:            user[:roles])
+        roles:            user[:roles]
+    )
   end
 end
 
 Given(/^(\d+) default subscriptions exists$/) do |num|
   @subscriptions = FactoryBot.create_list(:subscription, num).map(&:to_h)
   Models::Subscription.create!(@subscriptions)
-end
-
-Given(/^(\d+) default vacancies exists$/) do |num|
-  @jobs = FactoryBot.create_list(:vacancy, num).map(&:to_h)
-  Models::Job.create!(@jobs) do |job|
-    job.token      = 'token'
-    job.expired_at = 1.week.from_now
-  end
 end
 
 Then(/^user see users list$/) do
@@ -48,11 +41,5 @@ end
 Then(/^user see subscriptions list$/) do
   @subscriptions.each do |subscription|
     expect(@current_page.text).to be_include subscription[:email]
-  end
-end
-
-Then(/^user see jobs list$/) do
-  @jobs.each do |job|
-    expect(@current_page.text).to be_include job[:title]
   end
 end
