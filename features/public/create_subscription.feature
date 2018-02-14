@@ -1,24 +1,20 @@
 Feature: create subscription
-  I create the subscription
+  User subscribes
 
   Background:
-    Given I am on the juniorjobs home page
-    Then I see subscription form
+    Given User on the juniorjobs home page
+    Given User subscribes    
 
   Scenario: Subscribe with valid email
-    Given I try to subscribe with valid email
-    When I fill the subscription form and submit
-    Then redirect to home page
-    Then see success message: "Выполнено успешно"
+    When User fill subscriptions form and submit
+    Then User see message: "Выполнено успешно"
 
-  Scenario: Subscribe with not valid email
-    Given I try to subscribe with not valid email
-    When I fill the subscription form and submit
-    Then redirect to home page
-    Then see error message: "имеет неверное значение"
+  Scenario Outline: create subscription with not valid data
+    Given User have subscription <field> with <data>
+    When User fill subscriptions form and submit
+    Then User see message: <message>
 
-  Scenario: Subscribe with blank email
-    Given I try to subscribe without email
-    When I fill the subscription form and submit
-    Then redirect to home page
-    Then see error message: "не может быть пустым"
+    Examples:
+    | field  | data      | message                   |
+    | email  | invalid   | "имеет неверное значение" |
+    | email  |           | "не может быть пустым"    |

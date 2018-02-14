@@ -1,33 +1,22 @@
 # frozen_string_literal: true
 
-When(/^I fill the subscription form and submit$/) do
+Given(/^User subscribes/) do
+  @subscription = FactoryBot.create :subscription
+end
+
+Given(/^User on the juniorjobs (\w+) page$/) do |page|
+  goto url_for(page)
+  @current_page = page_for(page)
+end
+
+When(/^User fill subscriptions form and submit/) do
   @current_page.fill_form(@subscription)
 end
 
-Then(/^I see subscription form$/) do
-  expect(@current_page.new_subscription_form_element).to be_visible
+Given(/^User have subscription ([^"]*) with ([^"]*)/) do |field, data|
+  @subscription.send("#{field}=", data)
 end
 
-Given(/^I try to subscribe with valid email/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^redirect to home page/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given(/^I try to subscribe with not valid email/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given(/^I try to subscribe without email/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("see success message: {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("see error message: {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+And(/^User see message: (([^"]*)||"([^"]*)")$/) do |text|
+  expect(@current_page.text).to be_include(text)
 end
