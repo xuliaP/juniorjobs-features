@@ -4,7 +4,7 @@ require 'sorcery/crypto_providers/bcrypt'
 
 FactoryBot.define do
   sequence :email do |n|
-    "person#{n}@example.com"
+    Faker::Internet.email
   end
 
   factory :user, class: OpenStruct do
@@ -15,6 +15,6 @@ FactoryBot.define do
     password Faker::Internet.password(6)
     salt { 'asdasdastr4325234324sdfds' }
     crypted_password { Sorcery::CryptoProviders::BCrypt.encrypt(password, salt) }
-    roles { %w[admin junior company].sample }
+    roles { %w[junior company].sample }
   end
 end
