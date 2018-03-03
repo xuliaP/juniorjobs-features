@@ -52,3 +52,14 @@ end
 And(/^user see vacancy$/) do
   steps %( And user see his vacancy )
 end
+
+And(/^user have published vacancy$/) do
+  @vacancy = FactoryBot.create :vacancy
+  @vacancy = Models::Job.create!(@vacancy.to_h) do |job|
+    job.user_id = @user.id
+    job.expired_at = 1.week.from_now
+    job.token = 'token'
+    job.status = 'approved'
+  end
+  goto url_for(:vacancy)
+end
