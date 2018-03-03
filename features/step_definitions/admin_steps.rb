@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-Given(/^user logged in as admin$/) do
-  @user.roles = ['admin']
+Given(/^user logged in as (\w+)$/) do |role|
+  @user.roles = [role]
   Models::User.create!(
       email:            @user.email,
       crypted_password: @user.crypted_password,
