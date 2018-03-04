@@ -9,4 +9,12 @@ module ExpectationHelpers
         .and be_present
     end
   end
+
+  def cv_present?
+    @current_page.cv_presents_property_mapper.each do |property|
+      expect(@current_page.send("cv_#{property}"))
+        .to be_include(@cv.send(property))
+        .and be_present
+    end
+  end
 end

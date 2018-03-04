@@ -36,6 +36,22 @@ module Routes
         admin_dashboard: {
             path: '/admin',
             page_class: Pages::AdminDashboard
+        },
+        cv: {
+          path: '/cv',
+          page_class: Pages::Cv
+        },
+        cvs: {
+          path: '/cvs',
+          page_class: Pages::Cvs
+        },
+        own_cvs: {
+          path: '/cvs/own',
+          page_class: Pages::OwnCvs
+        },
+        new_cv: {
+          path: '/cvs/new',
+          page_class: Pages::NewCv
         }
       }
     end
