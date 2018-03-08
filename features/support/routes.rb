@@ -22,7 +22,7 @@ module Routes
           page_class: Pages::SignUp
         },
         vacancy: {
-            path: '/jobs/',
+            path: '/jobs',
             page_class: Pages::Vacancy
         },
         new_vacancy: {
