@@ -29,6 +29,10 @@ module Routes
           path: '/jobs/new',
           page_class: Pages::NewVacancy
         },
+        edit_vacancy: {
+          path: '/jobs/:id/edit',
+          page_class: Pages::EditVacancy
+        },
         login: {
             path: '/login',
             page_class: Pages::Login

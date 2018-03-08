@@ -7,6 +7,6 @@ Feature: Delete vacancy
 
        
     Scenario: Delete user vacancy
-      Given user redirect to vacancy page
-      And User clic on delete button 
+      Given I am on the juniorjobs edit_vacancy page
+      And user click delete_job 
       Then User redirect to root url

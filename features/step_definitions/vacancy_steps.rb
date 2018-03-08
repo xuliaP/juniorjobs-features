@@ -61,5 +61,4 @@ And(/^user have published vacancy$/) do
     job.token = 'token'
     job.status = 'approved'
   end
-  goto url_for(:vacancy)
 end
