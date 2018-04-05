@@ -20,5 +20,6 @@ module NavigationHelpers
     goto url_for(:login)
     current_page = page_for(:login)
     current_page.fill_form(email, password)
+    sleep 5
   end
 end

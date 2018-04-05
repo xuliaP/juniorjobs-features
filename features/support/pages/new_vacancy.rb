@@ -22,6 +22,7 @@ module Pages
     text_field :job_salary_to, id: 'job_salary_to'
     checkbox :job_salary_by_agreement, id: 'job_salary_by_agreement'
     select_list :job_expired_at, id: 'job_expired_at'
+    text_field :job_tag_list, id: 'job_tag_list'
     button :submit, name: 'commit'
 
     def fill_form(vacancy)
@@ -76,7 +77,8 @@ module Pages
          remote
          salary_by_agreement
          employment
-         currency]
+         currency
+         tag_list ]
     end
   end
 end
