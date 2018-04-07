@@ -28,9 +28,14 @@ module Pages
     def fill_form(vacancy)
       fill_all_elements(vacancy)
       fill_job_expired_at(vacancy)
+      fill_tag_list(vacancy)
     end
 
     private
+
+    def fill_tag_list(vacancy)
+      self.job_tag_list = 'tag1,tag2,tag3'
+    end
 
     def fill_all_elements(vacancy)
       all_elements_mapping.each do |method|
@@ -77,8 +82,7 @@ module Pages
          remote
          salary_by_agreement
          employment
-         currency
-         tag_list ]
+         currency]
     end
   end
 end
