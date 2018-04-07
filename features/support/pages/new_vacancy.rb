@@ -25,16 +25,16 @@ module Pages
     text_field :job_tag_list, id: 'job_tag_list'
     button :submit, name: 'commit'
 
-    def fill_form(vacancy)
+    def fill_form(vacancy,tag_list)
       fill_all_elements(vacancy)
       fill_job_expired_at(vacancy)
-      fill_tag_list(vacancy)
+      fill_tag_list(tag_list)
     end
 
     private
 
-    def fill_tag_list(vacancy)
-      self.job_tag_list = 'tag1,tag2,tag3'
+    def fill_tag_list(tag_list)
+      self.job_tag_list = tag_list
     end
 
     def fill_all_elements(vacancy)

@@ -23,7 +23,7 @@ Given(/^default approved vacancy exists$/) do
 end
 
 When(/^user fill vacancy form$/) do
-  @current_page.fill_form(@vacancy)
+  @current_page.fill_form(@vacancy,@tag_list)
 end
 
 And(/^user see his vacancy$/) do
@@ -31,6 +31,7 @@ And(/^user see his vacancy$/) do
 end
 
 Given(/^user have vacancy ([^"]*) with ([^"]*)$/) do |field, data|
+  @tag_list = FactoryBot.create :tag_list
   data = data.nil? ? '' : Faker::Lorem.characters(data.to_i)
   @vacancy.send("#{field}=", data)
 end
